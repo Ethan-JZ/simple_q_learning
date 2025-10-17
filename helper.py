@@ -75,9 +75,8 @@ def update_env(state: int, episode: int, step_counter: int, n_states: int, fresh
     n_states: number of states
     fresh_time: fresh time per movement
     """
-
     
-    env = ['-'] * (n_states - 1) + ['T']
+    env = ['⬜️'] * (n_states - 1) + ['⭐️']
     if state == 'terminal':
         
         interaction = 'Episode %s: total steps = %s' % (episode+1, step_counter)

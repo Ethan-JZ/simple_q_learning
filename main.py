@@ -14,7 +14,7 @@ def q_learning():
     ALPHA = 0.1                  # learning rate
     LAMBDA = 0.9                 # discounted factor
     MAX_EPISODES = 15            # maximum episodes
-    FRESH_TIME = 0.01             # fresh time per move of the agent
+    FRESH_TIME = 0.01            # fresh time per move of the agent
     
     # init the action values table
     steps_per_episode = []
@@ -28,7 +28,8 @@ def q_learning():
         state = 0
         done = False
         update_env(state=state, episode=episode, step_counter=step_counter, n_states=N_STATES, fresh_time=FRESH_TIME)
-
+        
+        # main loop for each episode
         while not done:
             action = choose_action(state=state, actions=ACTIONS, q_table=q_table, epsilon=EPSILON)
             state_next, reward = get_env_feedback(state=state, action=action, n_states=N_STATES)  # take action and get to the next state
@@ -51,6 +52,7 @@ def q_learning():
             update_env(state=state, episode=episode, step_counter=step_counter, n_states=N_STATES, fresh_time=FRESH_TIME)
             step_counter += 1
         
+        # append the steps for this episode
         steps_per_episode.append(step_counter)
     
     return q_table, steps_per_episode

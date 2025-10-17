@@ -1,36 +1,50 @@
 # Implement Q-learning on a 1-dimension world
 
 ## Environment setting 
-A simple 1 dimension world made with "---------T", where the agent "👻" is walking inside this 1 dimension world. The agent have two actions: `left` and `right`.
+A simple 1 dimension world made with "⬜️⬜️⬜️⬜️⬜️⬜️⬜️⭐️", where the agent "👻" is walking inside this 1 dimension world. The agent have two actions: `left` and `right`. This repo is greatly inspired by [mofanpy's reinforcement learning course](https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/general-rl). Please turn to his course if you speak fluent Chinese for more thoughtful understanding. Or you can leave a message here on Github to discuss it with me or send me an email on jz3293@columbia.edu. The code in that course is using older version of pandas with some member functions removed. But don't worry, the code in my repo is up to date and you can find the python package version in section Dependencies and Versions. 
 
 ## What are expected in the output
 
-After several episodes, you are expected to see the following agent movement for each step, from start to the target `T`.
+After several episodes, you are expected to see the following agent movement for each step, from start to the target ⭐️.
 
 <div align="center">
 
-👻------T
+👻⬜️⬜️⬜️⬜️⬜️⬜️⭐️
 
--👻-----T
+⬜️👻⬜️⬜️⬜️⬜️⬜️⭐️
 
---👻----T
+⬜️⬜️👻⬜️⬜️⬜️⬜️⭐️
 
----👻---T
+⬜️⬜️⬜️👻⬜️⬜️⬜️⭐️
 
-----👻--T
+⬜️⬜️⬜️⬜️👻⬜️⬜️⭐️
 
------👻-T
+⬜️⬜️⬜️⬜️⬜️👻⬜️⭐️
 
-------👻T
+⬜️⬜️⬜️⬜️⬜️⬜️👻⭐️
+
 
 </div>
 
 Episode 14: total steps = 6
 
-And a plot of total steps for each episode will be shown in the following way:
+A plot of total steps for each episode will be shown in the following way:
 
 
 ![Training curve](img/learning_curve.png)
+
+And a table similar to the following one:
+
+| State |  Left   |  Right  |
+|-------|---------|---------|
+| 0     | 0.0000  | 0.0005  |
+| 1     | 0.0000  | 0.0021  |
+| 2     | 0.0001  | 0.0100  |
+| 3     | 0.0001  | 0.0464  |
+| 4     | 0.0001  | 0.1678  |
+| 5     | 0.0103  | 0.4099  |
+| 6     | 0.0023  | 0.7941  |
+| 7     | 0.0000  | 0.0000  |
 
 
 
