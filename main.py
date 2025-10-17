@@ -29,7 +29,7 @@ def q_learning():
         done = False
         update_env(state=state, episode=episode, step_counter=step_counter, n_states=N_STATES, fresh_time=FRESH_TIME)
         
-        # main loop for each episode
+        # loop for each episode
         while not done:
             action = choose_action(state=state, actions=ACTIONS, q_table=q_table, epsilon=EPSILON)
             state_next, reward = get_env_feedback(state=state, action=action, n_states=N_STATES)  # take action and get to the next state

@@ -7,6 +7,10 @@ import time
 def build_q_table(n_states: int, actions: List[str]) -> pd.DataFrame:
     """
     build q table based on state and actions
+    n_states: number of states
+    actions: action choices
+
+    return: q table
     """
 
     table = pd.DataFrame(
@@ -26,6 +30,8 @@ def choose_action(state: int, actions: List[str], q_table: pd.DataFrame, epsilon
     actions: action choices
     q_table: action value table with each q(s, a) pair
     epsilon: epsion greedy parameter
+
+    return: action name
     """
     state_actions = q_table.iloc[state, :]  # choose the entire row q(s, a) of the state s
     
@@ -74,6 +80,8 @@ def update_env(state: int, episode: int, step_counter: int, n_states: int, fresh
     step_counter: how many steps are there after each episode
     n_states: number of states
     fresh_time: fresh time per movement
+
+    return: None
     """
     
     env = ['⬜️'] * (n_states - 1) + ['⭐️']
