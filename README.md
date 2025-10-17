@@ -1,7 +1,38 @@
-# Implement Q-Learning on a 1-dimension world
+# Implement Q-learning on a 1-dimension world
 
 ## Environment setting 
 A simple 1 dimension world made with "---------T", where the agent "👻" is walking inside this 1 dimension world. The agent have two actions: `left` and `right`.
+
+## What are expected in the output
+
+After several episodes, you are expected to see the following agent movement for each step, from start to the target `T`.
+
+<div align="center">
+
+👻------T
+
+-👻-----T
+
+--👻----T
+
+---👻---T
+
+----👻--T
+
+-----👻-T
+
+------👻T
+
+</div>
+
+Episode 14: total steps = 6
+
+And a plot of total steps for each episode will be shown in the following way:
+
+
+![Training curve](img/learning_curve.png)
+
+
 
 ## Dependencies and Versions
 To check your current version of python: type `python --version` in a command window.
@@ -11,7 +42,7 @@ To view your current version of package in python: type `pip show your_package_n
 3. pandas version: `pandas 2.2.3`
 4. matplotlib version: `3.10.0`
 
-## Q-Learning Algorithm
+## Q-learning Algorithm
 The core idea of Q-Learning algorithm is to update optimal action values ($q$-values) in a Temporal-Difference way. Temporal-Difference learning or TD learning is a fundamental idea of Q-learning. What's different is that TD learning is updating the state values while Q-learning is updating optimal $q$-values. A bridge between the two algorithms is called SARSA, an algorithm that estimates $q$-values. 
 
 Core function of Q-learning algorithm:
@@ -23,19 +54,23 @@ $$
 
 On the left:
 
-$Q(s, a)$ is the new estimate of $q$-value.
+$\bullet$ $Q(s, a)$ is the new estimate of $q$-value.
 
 On the right:
 
-$Q(s, a)$ is the current estimate of $q$-value under state $s$ and action $a$.
+$\bullet$ $Q(s, a)$: Current estimate of $q$-value under state $s$ and action $a$.
 
-$\alpha$ is the learning rate for each update. 
+$\bullet$ $\alpha \in (0, 1]$: Learning rate for each update. 
 
-$r$ is the direct reward from the action $a$.
+$\bullet$ $\gamma \in (0, 1]$: Discount factor (how much future rewards are worth)
 
-$\max_{a'} Q(s', a')$ is the maximum $q$-value of taking action $a'$ and then moving to next state $s'$. 
+$\bullet$ $r$: Direct reward from the action $a$.
 
-$r + \gamma \max_{a'} Q(s', a')$ is seen as $Q$ target. 
+$\bullet$ $s'$: Next state.
+
+$\bullet$ $\max_{a'} Q(s', a')$: Estimated value of the best action in the next state.
+
+$\bullet$ $r + \gamma \max_{a'} Q(s', a')$ is seen as $Q$ target. 
 
 ### Update policy for $s$
 
