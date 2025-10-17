@@ -77,7 +77,7 @@ Next we choose our action based on two rules:
 
 (2) If that state has never been explored, meaning `state_actions.all()==0`, we also randomly choose an action from action space, `left` and `right`.
 
-After taking the action `right`, if the next state is our target `T`, we then get a reward. If the next state is not target ⭐️, no reward.
+After taking the action `right`, if the next state is our target ⭐️, we then get a reward. If the next state is not target ⭐️, no reward.
 
 After taking the action `left`, if the next state is hitting the start point's left wall, we stay at the start point. Otherwise, we move more to the left. Both without reward.
 
