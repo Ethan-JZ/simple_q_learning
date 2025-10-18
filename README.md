@@ -54,7 +54,11 @@ To view your current version of package in python: type `pip show your_package_n
 1. python version: `python 3.13.5`
 2. numpy version: `numpy 2.1.3`
 3. pandas version: `pandas 2.2.3`
-4. matplotlib version: `3.10.0`
+4. matplotlib version: `matplotlib 3.10.0`
+
+Run the following code to install everything from `requirements.txt`:
+
+`pip install -r requirements.txt`
 
 ## Q-learning Algorithm
 The core idea of Q-Learning algorithm is to update optimal action values ($q$-values) in a Temporal-Difference way. Temporal-Difference learning or TD learning is a fundamental idea of Q-learning. What's different is that TD learning is updating the state values while Q-learning is updating optimal $q$-values. A bridge between the two algorithms is called SARSA, an algorithm that estimates $q$-values. 
